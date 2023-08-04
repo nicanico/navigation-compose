@@ -8,20 +8,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @Composable
-fun PerfilScreen() {
+fun PerfilScreen(navController: NavHostController) {
     Column (
         modifier = Modifier
             .background(Color.Gray)
@@ -38,7 +37,7 @@ fun PerfilScreen() {
             .width(200.dp)
             .height(200.dp))
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate("menu") },
             modifier = Modifier.width(180.dp),
             colors = ButtonDefaults.buttonColors(Color.White)
         ) {
@@ -51,8 +50,3 @@ fun PerfilScreen() {
 
 }
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun perfilScreenPreview() {
-    PerfilScreen()
-}

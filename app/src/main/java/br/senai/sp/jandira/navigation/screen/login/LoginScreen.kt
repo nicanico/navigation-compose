@@ -1,5 +1,7 @@
 package br.senai.sp.jandira.navigation.screen.login
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,16 +38,22 @@ fun LoginScreen(navController: NavHostController) {
         Spacer(modifier = Modifier
             .width(200.dp)
             .height(200.dp))
-        Button(
-            onClick = { navController.navigate("menu") },
-            modifier = Modifier.width(180.dp),
-            colors = ButtonDefaults.buttonColors(Color.White)
+        AnimatedVisibility(
+            visible = true,
+            enter = fadeIn()
         ) {
-            Text(
-                text = "ENTRAR",
-                color = Color.Magenta
-            )
+            Button(
+                onClick = { navController.navigate("menu") },
+                modifier = Modifier.width(180.dp),
+                colors = ButtonDefaults.buttonColors(Color.White)
+            ) {
+                Text(
+                    text = "ENTRAR",
+                    color = Color.Magenta
+                )
+            }
         }
+
     }
 
 }
